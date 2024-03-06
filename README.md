@@ -5,7 +5,7 @@ A utility library for React that provides easy-to-use hooks and components to si
 ## Usage
 ```jsx
 import React from 'react';
-import { useEventListner } from 'react-ez';
+import { useEventListner } from '@iwbam/react-ez';
 
 function App() {
 
