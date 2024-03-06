@@ -1,4 +1,4 @@
-# react-ez
+# @iwbam/react-ez
 
 A utility library for React that provides easy-to-use hooks and components to simplify common tasks.
 
