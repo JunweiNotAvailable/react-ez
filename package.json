@@ -1,8 +1,8 @@
 {
-  "name": "react-ez",
+  "name": "@iwbam/react-ez",
   "description": "Easy functions for building React apps",
-  "version": "1.0.0",
-  "author": "junweinotavailable",
+  "version": "1.0.3",
+  "author": "iwbam",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
