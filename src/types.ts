@@ -1,13 +1,6 @@
 import React from "react";
 
 // Custom types
-
-// State
-export type EasyState<T> = {
-  value: T;       
-  set: React.Dispatch<React.SetStateAction<T>>;
-};
-
 // Boolean state
 export type ToggleState = {
   value: boolean;
@@ -21,10 +14,12 @@ export type EventHandler<T extends Event> = (event: T) => void;
 // Extend interface
 
 // Input
-export interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-  state?: EasyState<string> | EasyState<number> | EasyState<undefined>
+export interface InputProps<T extends string | number | undefined> extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  state: T
+  setState: React.Dispatch<T>
 }
 // Textarea
 export interface TextAreaProps extends React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
-  state?: EasyState<string>
+  state: string
+  setState: React.Dispatch<React.SetStateAction<string>>
 }

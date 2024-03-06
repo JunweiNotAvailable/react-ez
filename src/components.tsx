@@ -2,18 +2,16 @@ import React from "react"
 import { InputProps, TextAreaProps } from "./types"
 
 // Easy input
-export const Input: React.FC<InputProps> = ({ state, ...props }) => {
-  if (!state) return <input {...props} />
-  
-  if (typeof state.value === 'string') {
-    return <input value={state.value} onChange={(e: React.ChangeEvent<HTMLInputElement>) => state.set(e.target.value)} {...props} />
-  } else if (typeof state.value === 'number') {
-    return <input value={state.value} onChange={(e: React.ChangeEvent<HTMLInputElement>) => state.set(Number(e.target.value) || state.value)} {...props} />
+export const Input: React.FC<InputProps<string | number>> = ({ state, setState, ...props }) => {
+  if (typeof state === 'string') {
+    return <input value={state} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setState(e.target.value)} {...props} />
+  } else if (typeof state === 'number') {
+    return <input value={state} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setState(Number(e.target.value) || state)} {...props} />
   }
 }
 // Easy textarea
-export const TextArea: React.FC<TextAreaProps> = ({ state, ...props }) => {
+export const TextArea: React.FC<TextAreaProps> = ({ state, setState, ...props }) => {
   if (!state) return <textarea {...props} />
 
-  return <textarea value={state.value} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => state.set(e.target.value)} {...props} />
+  return <textarea value={state} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setState(e.target.value)} {...props} />
 }

@@ -1,14 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { EasyState, EventHandler, ToggleState } from './types';
-
-// Alternation of useState
-export function useEasyState<T>(initialValue: T): EasyState<T> {
-  const [state, setState] = useState<T>(initialValue);
-  return {
-    value: state,
-    set: setState,
-  };
-}
+import { EventHandler, ToggleState } from './types';
 
 // Toggle states
 export function useToggle(initialState: boolean): ToggleState {
