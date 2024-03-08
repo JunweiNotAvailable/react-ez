@@ -2,11 +2,11 @@ import React from "react"
 import { InputProps, TextAreaProps } from "./types"
 
 // Easy input
-export const Input: React.FC<InputProps<string | number>> = ({ state, setState, ...props }) => {
+export const Input: React.FC<InputProps<string> | InputProps<number>> = ({ state, setState, ...props }) => {
   if (typeof state === 'string') {
-    return <input value={state} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setState(e.target.value)} {...props} />
+    return <input value={state} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setState(e.target.value as never)} {...props} />
   } else if (typeof state === 'number') {
-    return <input value={state} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setState(Number(e.target.value) || state)} {...props} />
+    return <input value={state} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setState(Number(e.target.value) as never || state)} {...props} />
   }
 }
 // Easy textarea
