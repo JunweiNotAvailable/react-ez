@@ -1,7 +1,7 @@
 {
   "name": "@iwbam/react-ez",
   "description": "Easy functions for building React apps",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "iwbam",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,6 +9,9 @@
     "dist",
     "README.md"
   ],
+  "repository": {
+    "url": "https://github.com/junweinotavailable/react-ez"
+  },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",

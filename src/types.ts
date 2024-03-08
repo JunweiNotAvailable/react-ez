@@ -1,6 +1,7 @@
 import React from "react";
 
 // Custom types
+
 // Boolean state
 export type ToggleState = {
   value: boolean;
