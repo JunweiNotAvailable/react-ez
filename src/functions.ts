@@ -38,3 +38,16 @@ export function useInterval(callback: () => void, ms?: number | undefined): void
     };
   }, [callback, ms]);
 };
+
+// Timeout
+export function useTimeout(callback: () => void, delay: number): void {
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  useEffect(() => {
+    timerRef.current = setTimeout(callback, delay);
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [callback, delay]);
+};
