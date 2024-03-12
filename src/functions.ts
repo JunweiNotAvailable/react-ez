@@ -23,7 +23,7 @@ export function useEventListener<T extends keyof DocumentEventMap>(
     };
     document.addEventListener(eventName, handleEvent);
     return () => document.removeEventListener(eventName, handleEvent);
-  }, deps || []);
+  }, deps);
 }
 
 // Interval
@@ -51,3 +51,18 @@ export function useTimeout(callback: () => void, delay: number): void {
     };
   }, [callback, delay]);
 };
+
+// Use async function in useEffect
+export function useAsyncEffect(asyncEffect: () => Promise<void>, deps?: React.DependencyList | undefined): void {
+  useEffect(() => {
+    const cleanup = async () => {
+      try {
+        await asyncEffect();
+      } catch (error) {
+        console.error('Error during asynchronous effect:', error);
+      }
+    };
+    cleanup();
+    return () => {};
+  }, deps);
+}
